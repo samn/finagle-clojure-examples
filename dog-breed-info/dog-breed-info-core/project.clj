@@ -8,6 +8,7 @@
   :repositories [["twitter" {:url "http://maven.twttr.com/", :checksum :warn}]]
   :finagle-clojure {:thrift-output-path "src/java", :thrift-source-path "src/thrift"}
   :dependencies [
+                 [org.clojure/clojure "1.6.0"]
                  [finagle-clojure/thrift "0.1.0-SNAPSHOT"]
                  [com.twitter/scrooge-core_2.10 "3.16.3"]
                 ])

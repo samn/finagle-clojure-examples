@@ -1,5 +1,5 @@
 (ns dog-breed-info.service
-  (:import [dog_breed_info.thrift DogBreedInfo])
+  (:import [dog_breed_info.thrift DogBreedInfo BeautifulBreedRequest BeautifulBreedResponse])
   (:require [finagle-clojure.futures :as f]
             [finagle-clojure.thrift :as thrift])
   (:gen-class))
@@ -7,8 +7,11 @@
 (defn make-service
   []
   (thrift/service DogBreedInfo
-    ;; TODO implement service methods
-    ))
+    (isBeautiful [request]
+      (let [breed-name (.getName request)]
+        (if (= breed-name "pomeranian")
+          (f/value (BeautifulBreedResponse. breed-name false))
+          (f/value (BeautifulBreedResponse. breed-name true)))))))
 
 (defn -main
   [& args]
