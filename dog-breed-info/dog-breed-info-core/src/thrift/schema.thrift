@@ -1,14 +1,14 @@
 namespace java dog_breed_info.thrift
 
-struct BeautifulBreedRequest {
+struct Request {
     1: string name
 }
 
-struct BeautifulBreedResponse {
+struct Response {
     1: string name
     2: bool beautiful
 }
 
 service DogBreedInfo {
-    BeautifulBreedResponse isBeautiful(1: BeautifulBreedRequest request)
+    Response isBreedBeautiful(1: Request request)
 }

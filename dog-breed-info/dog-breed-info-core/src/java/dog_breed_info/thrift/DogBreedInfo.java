@@ -37,15 +37,15 @@ import com.twitter.finagle.thrift.ThriftClientRequest;
 
 public class DogBreedInfo {
   public interface Iface {
-    public BeautifulBreedResponse isBeautiful(BeautifulBreedRequest request) throws TException;
+    public Response isBreedBeautiful(Request request) throws TException;
   }
 
   public interface AsyncIface {
-    public void isBeautiful(BeautifulBreedRequest request, AsyncMethodCallback<AsyncClient.isBeautiful_call> resultHandler) throws TException;
+    public void isBreedBeautiful(Request request, AsyncMethodCallback<AsyncClient.isBreedBeautiful_call> resultHandler) throws TException;
   }
 
   public interface ServiceIface {
-    public Future<BeautifulBreedResponse> isBeautiful(BeautifulBreedRequest request);
+    public Future<Response> isBreedBeautiful(Request request);
   }
 
   public static class Client implements TServiceClient, Iface {
@@ -85,23 +85,23 @@ public class DogBreedInfo {
       return this.oprot_;
     }
 
-    public BeautifulBreedResponse isBeautiful(BeautifulBreedRequest request) throws TException
+    public Response isBreedBeautiful(Request request) throws TException
     {
-      send_isBeautiful(request);
-      return recv_isBeautiful();
+      send_isBreedBeautiful(request);
+      return recv_isBreedBeautiful();
     }
 
-    public void send_isBeautiful(BeautifulBreedRequest request) throws TException
+    public void send_isBreedBeautiful(Request request) throws TException
     {
-      oprot_.writeMessageBegin(new TMessage("isBeautiful", TMessageType.CALL, ++seqid_));
-      isBeautiful_args args = new isBeautiful_args();
+      oprot_.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.CALL, ++seqid_));
+      isBreedBeautiful_args args = new isBreedBeautiful_args();
       args.setRequest(request);
       args.write(oprot_);
       oprot_.writeMessageEnd();
       oprot_.getTransport().flush();
     }
 
-    public BeautifulBreedResponse recv_isBeautiful() throws TException
+    public Response recv_isBreedBeautiful() throws TException
     {
       TMessage msg = iprot_.readMessageBegin();
       if (msg.type == TMessageType.EXCEPTION) {
@@ -110,15 +110,15 @@ public class DogBreedInfo {
         throw x;
       }
       if (msg.seqid != seqid_) {
-        throw new TApplicationException(TApplicationException.BAD_SEQUENCE_ID, "isBeautiful failed: out of sequence response");
+        throw new TApplicationException(TApplicationException.BAD_SEQUENCE_ID, "isBreedBeautiful failed: out of sequence response");
       }
-      isBeautiful_result result = new isBeautiful_result();
+      isBreedBeautiful_result result = new isBreedBeautiful_result();
       result.read(iprot_);
       iprot_.readMessageEnd();
       if (result.isSetSuccess()) {
         return result.success;
       }
-      throw new TApplicationException(TApplicationException.MISSING_RESULT, "isBeautiful failed: unknown result");
+      throw new TApplicationException(TApplicationException.MISSING_RESULT, "isBreedBeautiful failed: unknown result");
     }
   }
 
@@ -139,35 +139,35 @@ public class DogBreedInfo {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void isBeautiful(BeautifulBreedRequest request, AsyncMethodCallback<isBeautiful_call> resultHandler) throws TException {
+    public void isBreedBeautiful(Request request, AsyncMethodCallback<isBreedBeautiful_call> resultHandler) throws TException {
       checkReady();
-      isBeautiful_call method_call = new isBeautiful_call(request, resultHandler, this, protocolFactory, transport);
+      isBreedBeautiful_call method_call = new isBreedBeautiful_call(request, resultHandler, this, protocolFactory, transport);
       manager.call(method_call);
     }
 
-    public static class isBeautiful_call extends TAsyncMethodCall {
-      private BeautifulBreedRequest request;
+    public static class isBreedBeautiful_call extends TAsyncMethodCall {
+      private Request request;
 
-      public isBeautiful_call(BeautifulBreedRequest request, AsyncMethodCallback<isBeautiful_call> resultHandler, TAsyncClient client, TProtocolFactory protocolFactory, TNonblockingTransport transport) throws TException {
+      public isBreedBeautiful_call(Request request, AsyncMethodCallback<isBreedBeautiful_call> resultHandler, TAsyncClient client, TProtocolFactory protocolFactory, TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.request = request;
       }
 
       public void write_args(TProtocol prot) throws TException {
-        prot.writeMessageBegin(new TMessage("isBeautiful", TMessageType.CALL, 0));
-        isBeautiful_args args = new isBeautiful_args();
+        prot.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.CALL, 0));
+        isBreedBeautiful_args args = new isBreedBeautiful_args();
         args.setRequest(request);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public BeautifulBreedResponse getResult() throws TException {
+      public Response getResult() throws TException {
         if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         TMemoryInputTransport memoryTransport = new TMemoryInputTransport(getFrameBuffer().array());
         TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
-        return (new Client(prot)).recv_isBeautiful();
+        return (new Client(prot)).recv_isBreedBeautiful();
       }
      }
    }
@@ -182,13 +182,13 @@ public class DogBreedInfo {
       this.protocolFactory = protocolFactory;
     }
 
-    public Future<BeautifulBreedResponse> isBeautiful(BeautifulBreedRequest request) {
+    public Future<Response> isBreedBeautiful(Request request) {
       try {
         // TODO: size
         TMemoryBuffer __memoryTransport__ = new TMemoryBuffer(512);
         TProtocol __prot__ = this.protocolFactory.getProtocol(__memoryTransport__);
-        __prot__.writeMessageBegin(new TMessage("isBeautiful", TMessageType.CALL, 0));
-        isBeautiful_args __args__ = new isBeautiful_args();
+        __prot__.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.CALL, 0));
+        isBreedBeautiful_args __args__ = new isBreedBeautiful_args();
         __args__.setRequest(request);
         __args__.write(__prot__);
         __prot__.writeMessageEnd();
@@ -197,12 +197,12 @@ public class DogBreedInfo {
         byte[] __buffer__ = Arrays.copyOfRange(__memoryTransport__.getArray(), 0, __memoryTransport__.length());
         ThriftClientRequest __request__ = new ThriftClientRequest(__buffer__, false);
         Future<byte[]> __done__ = this.service.apply(__request__);
-        return __done__.flatMap(new Function<byte[], Future<BeautifulBreedResponse>>() {
-          public Future<BeautifulBreedResponse> apply(byte[] __buffer__) {
+        return __done__.flatMap(new Function<byte[], Future<Response>>() {
+          public Future<Response> apply(byte[] __buffer__) {
             TMemoryInputTransport __memoryTransport__ = new TMemoryInputTransport(__buffer__);
             TProtocol __prot__ = ServiceToClient.this.protocolFactory.getProtocol(__memoryTransport__);
             try {
-              return Future.value((new Client(__prot__)).recv_isBeautiful());
+              return Future.value((new Client(__prot__)).recv_isBreedBeautiful());
             } catch (Exception e) {
               return Future.exception(e);
             }
@@ -219,7 +219,7 @@ public class DogBreedInfo {
     public Processor(Iface iface)
     {
       iface_ = iface;
-      processMap_.put("isBeautiful", new isBeautiful());
+      processMap_.put("isBreedBeautiful", new isBreedBeautiful());
     }
 
     protected static interface ProcessFunction {
@@ -247,26 +247,26 @@ public class DogBreedInfo {
       return true;
     }
 
-    private class isBeautiful implements ProcessFunction {
+    private class isBreedBeautiful implements ProcessFunction {
       public void process(int seqid, TProtocol iprot, TProtocol oprot) throws TException
       {
-        isBeautiful_args args = new isBeautiful_args();
+        isBreedBeautiful_args args = new isBreedBeautiful_args();
         try {
           args.read(iprot);
         } catch (TProtocolException e) {
           iprot.readMessageEnd();
           TApplicationException x = new TApplicationException(TApplicationException.PROTOCOL_ERROR, e.getMessage());
-          oprot.writeMessageBegin(new TMessage("isBeautiful", TMessageType.EXCEPTION, seqid));
+          oprot.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.EXCEPTION, seqid));
           x.write(oprot);
           oprot.writeMessageEnd();
           oprot.getTransport().flush();
           return;
         }
         iprot.readMessageEnd();
-        isBeautiful_result result = new isBeautiful_result();
-        result.success = iface_.isBeautiful(args.request);
+        isBreedBeautiful_result result = new isBreedBeautiful_result();
+        result.success = iface_.isBreedBeautiful(args.request);
         
-        oprot.writeMessageBegin(new TMessage("isBeautiful", TMessageType.REPLY, seqid));
+        oprot.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.REPLY, seqid));
         result.write(oprot);
         oprot.writeMessageEnd();
         oprot.getTransport().flush();
@@ -281,9 +281,9 @@ public class DogBreedInfo {
     public Service(final ServiceIface iface, final TProtocolFactory protocolFactory) {
       this.iface = iface;
       this.protocolFactory = protocolFactory;
-      functionMap.put("isBeautiful", new Function2<TProtocol, Integer, Future<byte[]>>() {
+      functionMap.put("isBreedBeautiful", new Function2<TProtocol, Integer, Future<byte[]>>() {
         public Future<byte[]> apply(final TProtocol iprot, final Integer seqid) {
-          isBeautiful_args args = new isBeautiful_args();
+          isBreedBeautiful_args args = new isBreedBeautiful_args();
           try {
             args.read(iprot);
           } catch (TProtocolException e) {
@@ -293,7 +293,7 @@ public class DogBreedInfo {
               TMemoryBuffer memoryBuffer = new TMemoryBuffer(512);
               TProtocol oprot = protocolFactory.getProtocol(memoryBuffer);
 
-              oprot.writeMessageBegin(new TMessage("isBeautiful", TMessageType.EXCEPTION, seqid));
+              oprot.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.EXCEPTION, seqid));
               x.write(oprot);
               oprot.writeMessageEnd();
               oprot.getTransport().flush();
@@ -311,17 +311,17 @@ public class DogBreedInfo {
           } catch (Exception e) {
             return Future.exception(e);
           }
-          Future<BeautifulBreedResponse> future;
+          Future<Response> future;
           try {
-            future = iface.isBeautiful(args.request);
+            future = iface.isBreedBeautiful(args.request);
           } catch (Exception e) {
             future = Future.exception(e);
           }
 
           try {
-            return future.flatMap(new Function<BeautifulBreedResponse, Future<byte[]>>() {
-              public Future<byte[]> apply(BeautifulBreedResponse value) {
-                isBeautiful_result result = new isBeautiful_result();
+            return future.flatMap(new Function<Response, Future<byte[]>>() {
+              public Future<byte[]> apply(Response value) {
+                isBreedBeautiful_result result = new isBreedBeautiful_result();
                 result.success = value;
                 result.setSuccessIsSet(true);
 
@@ -329,7 +329,7 @@ public class DogBreedInfo {
                   TMemoryBuffer memoryBuffer = new TMemoryBuffer(512);
                   TProtocol oprot = protocolFactory.getProtocol(memoryBuffer);
 
-                  oprot.writeMessageBegin(new TMessage("isBeautiful", TMessageType.REPLY, seqid));
+                  oprot.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.REPLY, seqid));
                   result.write(oprot);
                   oprot.writeMessageEnd();
 
@@ -383,13 +383,13 @@ public class DogBreedInfo {
     }
   }
 
-  public static class isBeautiful_args implements TBase<isBeautiful_args, isBeautiful_args._Fields>, java.io.Serializable, Cloneable {
-  private static final TStruct STRUCT_DESC = new TStruct("isBeautiful_args");
+  public static class isBreedBeautiful_args implements TBase<isBreedBeautiful_args, isBreedBeautiful_args._Fields>, java.io.Serializable, Cloneable {
+  private static final TStruct STRUCT_DESC = new TStruct("isBreedBeautiful_args");
 
   private static final TField REQUEST_FIELD_DESC = new TField("request", TType.STRUCT, (short)1);
 
 
-  public BeautifulBreedRequest request;
+  public Request request;
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements TFieldIdEnum {
@@ -456,17 +456,17 @@ public class DogBreedInfo {
   static {
     Map<_Fields, FieldMetaData> tmpMap = new EnumMap<_Fields, FieldMetaData>(_Fields.class);
     tmpMap.put(_Fields.REQUEST, new FieldMetaData("request", TFieldRequirementType.DEFAULT,
-      new StructMetaData(TType.STRUCT, BeautifulBreedRequest.class)));
+      new StructMetaData(TType.STRUCT, Request.class)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
-    FieldMetaData.addStructMetaDataMap(isBeautiful_args.class, metaDataMap);
+    FieldMetaData.addStructMetaDataMap(isBreedBeautiful_args.class, metaDataMap);
   }
 
 
-  public isBeautiful_args() {
+  public isBreedBeautiful_args() {
   }
 
-  public isBeautiful_args(
-    BeautifulBreedRequest request)
+  public isBreedBeautiful_args(
+    Request request)
   {
     this();
     this.request = request;
@@ -475,14 +475,14 @@ public class DogBreedInfo {
   /**
    * Performs a deep copy on <i>other</i>.
    */
-  public isBeautiful_args(isBeautiful_args other) {
+  public isBreedBeautiful_args(isBreedBeautiful_args other) {
     if (other.isSetRequest()) {
-      this.request = new BeautifulBreedRequest(other.request);
+      this.request = new Request(other.request);
     }
   }
 
-  public isBeautiful_args deepCopy() {
-    return new isBeautiful_args(this);
+  public isBreedBeautiful_args deepCopy() {
+    return new isBreedBeautiful_args(this);
   }
 
   @Override
@@ -490,11 +490,11 @@ public class DogBreedInfo {
     this.request = null;
   }
 
-  public BeautifulBreedRequest getRequest() {
+  public Request getRequest() {
     return this.request;
   }
 
-  public isBeautiful_args setRequest(BeautifulBreedRequest request) {
+  public isBreedBeautiful_args setRequest(Request request) {
     this.request = request;
     
     return this;
@@ -521,7 +521,7 @@ public class DogBreedInfo {
       if (value == null) {
         unsetRequest();
       } else {
-        setRequest((BeautifulBreedRequest)value);
+        setRequest((Request)value);
       }
       break;
     }
@@ -552,12 +552,12 @@ public class DogBreedInfo {
   public boolean equals(Object that) {
     if (that == null)
       return false;
-    if (that instanceof isBeautiful_args)
-      return this.equals((isBeautiful_args)that);
+    if (that instanceof isBreedBeautiful_args)
+      return this.equals((isBreedBeautiful_args)that);
     return false;
   }
 
-  public boolean equals(isBeautiful_args that) {
+  public boolean equals(isBreedBeautiful_args that) {
     if (that == null)
       return false;
     boolean this_present_request = true && this.isSetRequest();
@@ -582,13 +582,13 @@ public class DogBreedInfo {
     return builder.toHashCode();
   }
 
-  public int compareTo(isBeautiful_args other) {
+  public int compareTo(isBreedBeautiful_args other) {
     if (!getClass().equals(other.getClass())) {
       return getClass().getName().compareTo(other.getClass().getName());
     }
 
     int lastComparison = 0;
-    isBeautiful_args typedOther = (isBeautiful_args)other;
+    isBreedBeautiful_args typedOther = (isBreedBeautiful_args)other;
 
     lastComparison = Boolean.valueOf(isSetRequest()).compareTo(typedOther.isSetRequest());
     if (lastComparison != 0) {
@@ -620,7 +620,7 @@ public class DogBreedInfo {
       switch (field.id) {
         case 1: // REQUEST
           if (field.type == TType.STRUCT) {
-            this.request = new BeautifulBreedRequest();
+            this.request = new Request();
             this.request.read(iprot);
           } else {
             TProtocolUtil.skip(iprot, field.type);
@@ -652,7 +652,7 @@ public class DogBreedInfo {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder("isBeautiful_args(");
+    StringBuilder sb = new StringBuilder("isBreedBeautiful_args(");
     boolean first = true;
     sb.append("request:");
     if (this.request == null) {
@@ -670,13 +670,13 @@ public class DogBreedInfo {
   }
 }
 
-  public static class isBeautiful_result implements TBase<isBeautiful_result, isBeautiful_result._Fields>, java.io.Serializable, Cloneable {
-  private static final TStruct STRUCT_DESC = new TStruct("isBeautiful_result");
+  public static class isBreedBeautiful_result implements TBase<isBreedBeautiful_result, isBreedBeautiful_result._Fields>, java.io.Serializable, Cloneable {
+  private static final TStruct STRUCT_DESC = new TStruct("isBreedBeautiful_result");
 
   private static final TField SUCCESS_FIELD_DESC = new TField("success", TType.STRUCT, (short)0);
 
 
-  public BeautifulBreedResponse success;
+  public Response success;
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements TFieldIdEnum {
@@ -743,17 +743,17 @@ public class DogBreedInfo {
   static {
     Map<_Fields, FieldMetaData> tmpMap = new EnumMap<_Fields, FieldMetaData>(_Fields.class);
     tmpMap.put(_Fields.SUCCESS, new FieldMetaData("success", TFieldRequirementType.DEFAULT,
-      new StructMetaData(TType.STRUCT, BeautifulBreedResponse.class)));
+      new StructMetaData(TType.STRUCT, Response.class)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
-    FieldMetaData.addStructMetaDataMap(isBeautiful_result.class, metaDataMap);
+    FieldMetaData.addStructMetaDataMap(isBreedBeautiful_result.class, metaDataMap);
   }
 
 
-  public isBeautiful_result() {
+  public isBreedBeautiful_result() {
   }
 
-  public isBeautiful_result(
-    BeautifulBreedResponse success)
+  public isBreedBeautiful_result(
+    Response success)
   {
     this();
     this.success = success;
@@ -762,14 +762,14 @@ public class DogBreedInfo {
   /**
    * Performs a deep copy on <i>other</i>.
    */
-  public isBeautiful_result(isBeautiful_result other) {
+  public isBreedBeautiful_result(isBreedBeautiful_result other) {
     if (other.isSetSuccess()) {
-      this.success = new BeautifulBreedResponse(other.success);
+      this.success = new Response(other.success);
     }
   }
 
-  public isBeautiful_result deepCopy() {
-    return new isBeautiful_result(this);
+  public isBreedBeautiful_result deepCopy() {
+    return new isBreedBeautiful_result(this);
   }
 
   @Override
@@ -777,11 +777,11 @@ public class DogBreedInfo {
     this.success = null;
   }
 
-  public BeautifulBreedResponse getSuccess() {
+  public Response getSuccess() {
     return this.success;
   }
 
-  public isBeautiful_result setSuccess(BeautifulBreedResponse success) {
+  public isBreedBeautiful_result setSuccess(Response success) {
     this.success = success;
     
     return this;
@@ -808,7 +808,7 @@ public class DogBreedInfo {
       if (value == null) {
         unsetSuccess();
       } else {
-        setSuccess((BeautifulBreedResponse)value);
+        setSuccess((Response)value);
       }
       break;
     }
@@ -839,12 +839,12 @@ public class DogBreedInfo {
   public boolean equals(Object that) {
     if (that == null)
       return false;
-    if (that instanceof isBeautiful_result)
-      return this.equals((isBeautiful_result)that);
+    if (that instanceof isBreedBeautiful_result)
+      return this.equals((isBreedBeautiful_result)that);
     return false;
   }
 
-  public boolean equals(isBeautiful_result that) {
+  public boolean equals(isBreedBeautiful_result that) {
     if (that == null)
       return false;
     boolean this_present_success = true && this.isSetSuccess();
@@ -869,13 +869,13 @@ public class DogBreedInfo {
     return builder.toHashCode();
   }
 
-  public int compareTo(isBeautiful_result other) {
+  public int compareTo(isBreedBeautiful_result other) {
     if (!getClass().equals(other.getClass())) {
       return getClass().getName().compareTo(other.getClass().getName());
     }
 
     int lastComparison = 0;
-    isBeautiful_result typedOther = (isBeautiful_result)other;
+    isBreedBeautiful_result typedOther = (isBreedBeautiful_result)other;
 
     lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(typedOther.isSetSuccess());
     if (lastComparison != 0) {
@@ -907,7 +907,7 @@ public class DogBreedInfo {
       switch (field.id) {
         case 0: // SUCCESS
           if (field.type == TType.STRUCT) {
-            this.success = new BeautifulBreedResponse();
+            this.success = new Response();
             this.success.read(iprot);
           } else {
             TProtocolUtil.skip(iprot, field.type);
@@ -937,7 +937,7 @@ public class DogBreedInfo {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder("isBeautiful_result(");
+    StringBuilder sb = new StringBuilder("isBreedBeautiful_result(");
     boolean first = true;
     sb.append("success:");
     if (this.success == null) {

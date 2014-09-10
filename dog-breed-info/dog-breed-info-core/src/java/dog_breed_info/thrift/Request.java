@@ -29,8 +29,8 @@ import org.apache.thrift.protocol.*;
 
 // No additional import required for struct/union.
 
-public class BeautifulBreedRequest implements TBase<BeautifulBreedRequest, BeautifulBreedRequest._Fields>, java.io.Serializable, Cloneable {
-  private static final TStruct STRUCT_DESC = new TStruct("BeautifulBreedRequest");
+public class Request implements TBase<Request, Request._Fields>, java.io.Serializable, Cloneable {
+  private static final TStruct STRUCT_DESC = new TStruct("Request");
 
   private static final TField NAME_FIELD_DESC = new TField("name", TType.STRING, (short)1);
 
@@ -104,14 +104,14 @@ public class BeautifulBreedRequest implements TBase<BeautifulBreedRequest, Beaut
     tmpMap.put(_Fields.NAME, new FieldMetaData("name", TFieldRequirementType.DEFAULT,
       new FieldValueMetaData(TType.STRING)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
-    FieldMetaData.addStructMetaDataMap(BeautifulBreedRequest.class, metaDataMap);
+    FieldMetaData.addStructMetaDataMap(Request.class, metaDataMap);
   }
 
 
-  public BeautifulBreedRequest() {
+  public Request() {
   }
 
-  public BeautifulBreedRequest(
+  public Request(
     String name)
   {
     this();
@@ -121,14 +121,14 @@ public class BeautifulBreedRequest implements TBase<BeautifulBreedRequest, Beaut
   /**
    * Performs a deep copy on <i>other</i>.
    */
-  public BeautifulBreedRequest(BeautifulBreedRequest other) {
+  public Request(Request other) {
     if (other.isSetName()) {
       this.name = other.name;
     }
   }
 
-  public BeautifulBreedRequest deepCopy() {
-    return new BeautifulBreedRequest(this);
+  public Request deepCopy() {
+    return new Request(this);
   }
 
   @Override
@@ -140,7 +140,7 @@ public class BeautifulBreedRequest implements TBase<BeautifulBreedRequest, Beaut
     return this.name;
   }
 
-  public BeautifulBreedRequest setName(String name) {
+  public Request setName(String name) {
     this.name = name;
     
     return this;
@@ -198,12 +198,12 @@ public class BeautifulBreedRequest implements TBase<BeautifulBreedRequest, Beaut
   public boolean equals(Object that) {
     if (that == null)
       return false;
-    if (that instanceof BeautifulBreedRequest)
-      return this.equals((BeautifulBreedRequest)that);
+    if (that instanceof Request)
+      return this.equals((Request)that);
     return false;
   }
 
-  public boolean equals(BeautifulBreedRequest that) {
+  public boolean equals(Request that) {
     if (that == null)
       return false;
     boolean this_present_name = true && this.isSetName();
@@ -228,13 +228,13 @@ public class BeautifulBreedRequest implements TBase<BeautifulBreedRequest, Beaut
     return builder.toHashCode();
   }
 
-  public int compareTo(BeautifulBreedRequest other) {
+  public int compareTo(Request other) {
     if (!getClass().equals(other.getClass())) {
       return getClass().getName().compareTo(other.getClass().getName());
     }
 
     int lastComparison = 0;
-    BeautifulBreedRequest typedOther = (BeautifulBreedRequest)other;
+    Request typedOther = (Request)other;
 
     lastComparison = Boolean.valueOf(isSetName()).compareTo(typedOther.isSetName());
     if (lastComparison != 0) {
@@ -297,7 +297,7 @@ public class BeautifulBreedRequest implements TBase<BeautifulBreedRequest, Beaut
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder("BeautifulBreedRequest(");
+    StringBuilder sb = new StringBuilder("Request(");
     boolean first = true;
     sb.append("name:");
     if (this.name == null) {

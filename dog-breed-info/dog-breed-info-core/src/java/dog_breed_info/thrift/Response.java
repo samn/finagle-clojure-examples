@@ -29,8 +29,8 @@ import org.apache.thrift.protocol.*;
 
 // No additional import required for struct/union.
 
-public class BeautifulBreedResponse implements TBase<BeautifulBreedResponse, BeautifulBreedResponse._Fields>, java.io.Serializable, Cloneable {
-  private static final TStruct STRUCT_DESC = new TStruct("BeautifulBreedResponse");
+public class Response implements TBase<Response, Response._Fields>, java.io.Serializable, Cloneable {
+  private static final TStruct STRUCT_DESC = new TStruct("Response");
 
   private static final TField NAME_FIELD_DESC = new TField("name", TType.STRING, (short)1);
   private static final TField BEAUTIFUL_FIELD_DESC = new TField("beautiful", TType.BOOL, (short)2);
@@ -113,14 +113,14 @@ public class BeautifulBreedResponse implements TBase<BeautifulBreedResponse, Bea
     tmpMap.put(_Fields.BEAUTIFUL, new FieldMetaData("beautiful", TFieldRequirementType.DEFAULT,
       new FieldValueMetaData(TType.BOOL)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
-    FieldMetaData.addStructMetaDataMap(BeautifulBreedResponse.class, metaDataMap);
+    FieldMetaData.addStructMetaDataMap(Response.class, metaDataMap);
   }
 
 
-  public BeautifulBreedResponse() {
+  public Response() {
   }
 
-  public BeautifulBreedResponse(
+  public Response(
     String name,
     boolean beautiful)
   {
@@ -133,7 +133,7 @@ public class BeautifulBreedResponse implements TBase<BeautifulBreedResponse, Bea
   /**
    * Performs a deep copy on <i>other</i>.
    */
-  public BeautifulBreedResponse(BeautifulBreedResponse other) {
+  public Response(Response other) {
     __isset_bit_vector.clear();
     __isset_bit_vector.or(other.__isset_bit_vector);
     if (other.isSetName()) {
@@ -142,8 +142,8 @@ public class BeautifulBreedResponse implements TBase<BeautifulBreedResponse, Bea
     this.beautiful = other.beautiful;
   }
 
-  public BeautifulBreedResponse deepCopy() {
-    return new BeautifulBreedResponse(this);
+  public Response deepCopy() {
+    return new Response(this);
   }
 
   @Override
@@ -157,7 +157,7 @@ public class BeautifulBreedResponse implements TBase<BeautifulBreedResponse, Bea
     return this.name;
   }
 
-  public BeautifulBreedResponse setName(String name) {
+  public Response setName(String name) {
     this.name = name;
     
     return this;
@@ -182,7 +182,7 @@ public class BeautifulBreedResponse implements TBase<BeautifulBreedResponse, Bea
     return this.beautiful;
   }
 
-  public BeautifulBreedResponse setBeautiful(boolean beautiful) {
+  public Response setBeautiful(boolean beautiful) {
     this.beautiful = beautiful;
     setBeautifulIsSet(true);
 
@@ -250,12 +250,12 @@ public class BeautifulBreedResponse implements TBase<BeautifulBreedResponse, Bea
   public boolean equals(Object that) {
     if (that == null)
       return false;
-    if (that instanceof BeautifulBreedResponse)
-      return this.equals((BeautifulBreedResponse)that);
+    if (that instanceof Response)
+      return this.equals((Response)that);
     return false;
   }
 
-  public boolean equals(BeautifulBreedResponse that) {
+  public boolean equals(Response that) {
     if (that == null)
       return false;
     boolean this_present_name = true && this.isSetName();
@@ -292,13 +292,13 @@ public class BeautifulBreedResponse implements TBase<BeautifulBreedResponse, Bea
     return builder.toHashCode();
   }
 
-  public int compareTo(BeautifulBreedResponse other) {
+  public int compareTo(Response other) {
     if (!getClass().equals(other.getClass())) {
       return getClass().getName().compareTo(other.getClass().getName());
     }
 
     int lastComparison = 0;
-    BeautifulBreedResponse typedOther = (BeautifulBreedResponse)other;
+    Response typedOther = (Response)other;
 
     lastComparison = Boolean.valueOf(isSetName()).compareTo(typedOther.isSetName());
     if (lastComparison != 0) {
@@ -382,7 +382,7 @@ public class BeautifulBreedResponse implements TBase<BeautifulBreedResponse, Bea
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder("BeautifulBreedResponse(");
+    StringBuilder sb = new StringBuilder("Response(");
     boolean first = true;
     sb.append("name:");
     if (this.name == null) {
