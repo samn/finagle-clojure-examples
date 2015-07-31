@@ -17,7 +17,9 @@
       (f/map [res] (.isBeautiful res))
       f/await))
 
-(beautiful? client "pit bull") ; => true
+(comment 
+  (beautiful? client "pit bull") ; => true
+)
 
 (defn all-beautiful?
   [& breeds]
@@ -33,12 +35,14 @@
              (every? true?)))
       f/await))
 
-(all-beautiful? "pit bull" "lab" "pomeranian") ; => false
-(all-beautiful? "pit bull" "lab" "hound dog") ; => true
+(comment 
+  (all-beautiful? "pit bull" "lab" "pomeranian") ; => false
+  (all-beautiful? "pit bull" "lab" "hound dog") ; => true
 
-(-> (f/exception (Exception.))
-    ;; transform the error into a successful future
-    (f/handle [t] 0)
-    ;; handle a successful response
-    (f/map [v] (inc v))
-    f/await) ; => 1
+  (-> (f/exception (Exception.))
+      ;; transform the error into a successful future
+      (f/handle [t] 0)
+      ;; handle a successful response
+      (f/map [v] (inc v))
+      f/await) ; => 1
+  )

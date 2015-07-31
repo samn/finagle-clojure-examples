@@ -15,9 +15,9 @@
 (slurp-async "README.md") ; => Future
 
 (-> "README.md"
-    slurp-async
+    (slurp-async)
     (f/map [contents]
       (.toLowerCase contents))
     (f/map [string]
       (frequencies string))
-    f/await)
+    (f/await))

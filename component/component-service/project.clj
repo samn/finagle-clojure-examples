@@ -6,5 +6,5 @@
   :main component.service
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [component-core "0.1.0-SNAPSHOT"]
-                 [finagle-clojure/thrift "0.3.0"]
+                 [finagle-clojure/thrift "0.4.0"]
                  [com.stuartsierra/component "0.2.3"]])

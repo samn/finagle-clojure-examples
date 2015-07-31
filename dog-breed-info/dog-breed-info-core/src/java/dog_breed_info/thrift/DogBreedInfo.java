@@ -124,8 +124,8 @@ public class DogBreedInfo {
 
   public static class AsyncClient extends TAsyncClient implements AsyncIface {
     public static class Factory implements TAsyncClientFactory<AsyncClient> {
-      private TAsyncClientManager clientManager;
-      private TProtocolFactory protocolFactory;
+      private final TAsyncClientManager clientManager;
+      private final TProtocolFactory protocolFactory;
       public Factory(TAsyncClientManager clientManager, TProtocolFactory protocolFactory) {
         this.clientManager = clientManager;
         this.protocolFactory = protocolFactory;
@@ -139,43 +139,43 @@ public class DogBreedInfo {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void isBreedBeautiful(Request request, AsyncMethodCallback<isBreedBeautiful_call> resultHandler) throws TException {
+    public void isBreedBeautiful(Request request, AsyncMethodCallback<isBreedBeautiful_call> __resultHandler__) throws TException {
       checkReady();
-      isBreedBeautiful_call method_call = new isBreedBeautiful_call(request, resultHandler, this, protocolFactory, transport);
-      manager.call(method_call);
+      isBreedBeautiful_call __method_call__ = new isBreedBeautiful_call(request, __resultHandler__, this, super.protocolFactory, super.transport);
+      manager.call(__method_call__);
     }
 
     public static class isBreedBeautiful_call extends TAsyncMethodCall {
       private Request request;
 
-      public isBreedBeautiful_call(Request request, AsyncMethodCallback<isBreedBeautiful_call> resultHandler, TAsyncClient client, TProtocolFactory protocolFactory, TNonblockingTransport transport) throws TException {
-        super(client, protocolFactory, transport, resultHandler, false);
+      public isBreedBeautiful_call(Request request, AsyncMethodCallback<isBreedBeautiful_call> __resultHandler__, TAsyncClient __client__, TProtocolFactory __protocolFactory__, TNonblockingTransport __transport__) throws TException {
+        super(__client__, __protocolFactory__, __transport__, __resultHandler__, false);
         this.request = request;
       }
 
-      public void write_args(TProtocol prot) throws TException {
-        prot.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.CALL, 0));
-        isBreedBeautiful_args args = new isBreedBeautiful_args();
-        args.setRequest(request);
-        args.write(prot);
-        prot.writeMessageEnd();
+      public void write_args(TProtocol __prot__) throws TException {
+        __prot__.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.CALL, 0));
+        isBreedBeautiful_args __args__ = new isBreedBeautiful_args();
+        __args__.setRequest(request);
+        __args__.write(__prot__);
+        __prot__.writeMessageEnd();
       }
 
       public Response getResult() throws TException {
         if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
-        TMemoryInputTransport memoryTransport = new TMemoryInputTransport(getFrameBuffer().array());
-        TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
-        return (new Client(prot)).recv_isBreedBeautiful();
+        TMemoryInputTransport __memoryTransport__ = new TMemoryInputTransport(getFrameBuffer().array());
+        TProtocol __prot__ = super.client.getProtocolFactory().getProtocol(__memoryTransport__);
+        return (new Client(__prot__)).recv_isBreedBeautiful();
       }
      }
    }
 
 
   public static class ServiceToClient implements ServiceIface {
-    private com.twitter.finagle.Service<ThriftClientRequest, byte[]> service;
-    private TProtocolFactory protocolFactory;
+    private final com.twitter.finagle.Service<ThriftClientRequest, byte[]> service;
+    private final TProtocolFactory protocolFactory;
     public ServiceToClient(com.twitter.finagle.Service<ThriftClientRequest, byte[]> service, TProtocolFactory protocolFactory) {
       
       this.service = service;
@@ -670,6 +670,7 @@ public class DogBreedInfo {
   }
 }
 
+
   public static class isBreedBeautiful_result implements TBase<isBreedBeautiful_result, isBreedBeautiful_result._Fields>, java.io.Serializable, Cloneable {
   private static final TStruct STRUCT_DESC = new TStruct("isBreedBeautiful_result");
 
@@ -954,6 +955,7 @@ public class DogBreedInfo {
     // check for required fields
   }
 }
+
 
 
 }
