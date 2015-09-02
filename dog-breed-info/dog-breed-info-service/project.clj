@@ -6,4 +6,4 @@
   :main dog-breed-info.service
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [dog-breed-info-core "0.1.0-SNAPSHOT"]
-                 [finagle-clojure/thrift "0.4.0"]])
+                 [finagle-clojure/thrift "0.4.1"]])
