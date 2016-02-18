@@ -94,9 +94,9 @@ public class DogBreedInfo {
     public void send_isBreedBeautiful(Request request) throws TException
     {
       oprot_.writeMessageBegin(new TMessage("isBreedBeautiful", TMessageType.CALL, ++seqid_));
-      isBreedBeautiful_args args = new isBreedBeautiful_args();
-      args.setRequest(request);
-      args.write(oprot_);
+      isBreedBeautiful_args __args__ = new isBreedBeautiful_args();
+      __args__.setRequest(request);
+      __args__.write(oprot_);
       oprot_.writeMessageEnd();
       oprot_.getTransport().flush();
     }
@@ -485,7 +485,7 @@ public class DogBreedInfo {
     return new isBreedBeautiful_args(this);
   }
 
-  @Override
+  @java.lang.Override
   public void clear() {
     this.request = null;
   }
@@ -548,7 +548,7 @@ public class DogBreedInfo {
     throw new IllegalStateException();
   }
 
-  @Override
+  @java.lang.Override
   public boolean equals(Object that) {
     if (that == null)
       return false;
@@ -572,7 +572,7 @@ public class DogBreedInfo {
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     HashCodeBuilder builder = new HashCodeBuilder();
     boolean present_request = true && (isSetRequest());
@@ -650,7 +650,7 @@ public class DogBreedInfo {
     oprot.writeStructEnd();
   }
 
-  @Override
+  @java.lang.Override
   public String toString() {
     StringBuilder sb = new StringBuilder("isBreedBeautiful_args(");
     boolean first = true;
@@ -773,7 +773,7 @@ public class DogBreedInfo {
     return new isBreedBeautiful_result(this);
   }
 
-  @Override
+  @java.lang.Override
   public void clear() {
     this.success = null;
   }
@@ -836,7 +836,7 @@ public class DogBreedInfo {
     throw new IllegalStateException();
   }
 
-  @Override
+  @java.lang.Override
   public boolean equals(Object that) {
     if (that == null)
       return false;
@@ -860,7 +860,7 @@ public class DogBreedInfo {
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     HashCodeBuilder builder = new HashCodeBuilder();
     boolean present_success = true && (isSetSuccess());
@@ -936,7 +936,7 @@ public class DogBreedInfo {
     oprot.writeStructEnd();
   }
 
-  @Override
+  @java.lang.Override
   public String toString() {
     StringBuilder sb = new StringBuilder("isBreedBeautiful_result(");
     boolean first = true;

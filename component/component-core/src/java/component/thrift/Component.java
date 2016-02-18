@@ -94,8 +94,8 @@ public class Component {
     public void send_hello() throws TException
     {
       oprot_.writeMessageBegin(new TMessage("hello", TMessageType.CALL, ++seqid_));
-      hello_args args = new hello_args();
-      args.write(oprot_);
+      hello_args __args__ = new hello_args();
+      __args__.write(oprot_);
       oprot_.writeMessageEnd();
       oprot_.getTransport().flush();
     }
@@ -465,7 +465,7 @@ public class Component {
     return new hello_args(this);
   }
 
-  @Override
+  @java.lang.Override
   public void clear() {
   }
 
@@ -491,7 +491,7 @@ public class Component {
     throw new IllegalStateException();
   }
 
-  @Override
+  @java.lang.Override
   public boolean equals(Object that) {
     if (that == null)
       return false;
@@ -507,7 +507,7 @@ public class Component {
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     HashCodeBuilder builder = new HashCodeBuilder();
     return builder.toHashCode();
@@ -558,7 +558,7 @@ public class Component {
     oprot.writeStructEnd();
   }
 
-  @Override
+  @java.lang.Override
   public String toString() {
     StringBuilder sb = new StringBuilder("hello_args(");
     boolean first = true;
@@ -674,7 +674,7 @@ public class Component {
     return new hello_result(this);
   }
 
-  @Override
+  @java.lang.Override
   public void clear() {
     this.success = null;
   }
@@ -737,7 +737,7 @@ public class Component {
     throw new IllegalStateException();
   }
 
-  @Override
+  @java.lang.Override
   public boolean equals(Object that) {
     if (that == null)
       return false;
@@ -761,7 +761,7 @@ public class Component {
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     HashCodeBuilder builder = new HashCodeBuilder();
     boolean present_success = true && (isSetSuccess());
@@ -836,7 +836,7 @@ public class Component {
     oprot.writeStructEnd();
   }
 
-  @Override
+  @java.lang.Override
   public String toString() {
     StringBuilder sb = new StringBuilder("hello_result(");
     boolean first = true;

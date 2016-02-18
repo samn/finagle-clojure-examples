@@ -131,7 +131,7 @@ public class Request implements TBase<Request, Request._Fields>, java.io.Seriali
     return new Request(this);
   }
 
-  @Override
+  @java.lang.Override
   public void clear() {
     this.name = null;
   }
@@ -194,7 +194,7 @@ public class Request implements TBase<Request, Request._Fields>, java.io.Seriali
     throw new IllegalStateException();
   }
 
-  @Override
+  @java.lang.Override
   public boolean equals(Object that) {
     if (that == null)
       return false;
@@ -218,7 +218,7 @@ public class Request implements TBase<Request, Request._Fields>, java.io.Seriali
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     HashCodeBuilder builder = new HashCodeBuilder();
     boolean present_name = true && (isSetName());
@@ -295,7 +295,7 @@ public class Request implements TBase<Request, Request._Fields>, java.io.Seriali
     oprot.writeStructEnd();
   }
 
-  @Override
+  @java.lang.Override
   public String toString() {
     StringBuilder sb = new StringBuilder("Request(");
     boolean first = true;

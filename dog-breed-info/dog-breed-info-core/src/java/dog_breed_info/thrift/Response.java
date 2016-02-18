@@ -146,7 +146,7 @@ public class Response implements TBase<Response, Response._Fields>, java.io.Seri
     return new Response(this);
   }
 
-  @Override
+  @java.lang.Override
   public void clear() {
     this.name = null;
     setBeautifulIsSet(false);
@@ -246,7 +246,7 @@ public class Response implements TBase<Response, Response._Fields>, java.io.Seri
     throw new IllegalStateException();
   }
 
-  @Override
+  @java.lang.Override
   public boolean equals(Object that) {
     if (that == null)
       return false;
@@ -278,7 +278,7 @@ public class Response implements TBase<Response, Response._Fields>, java.io.Seri
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     HashCodeBuilder builder = new HashCodeBuilder();
     boolean present_name = true && (isSetName());
@@ -380,7 +380,7 @@ public class Response implements TBase<Response, Response._Fields>, java.io.Seri
     oprot.writeStructEnd();
   }
 
-  @Override
+  @java.lang.Override
   public String toString() {
     StringBuilder sb = new StringBuilder("Response(");
     boolean first = true;

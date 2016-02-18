@@ -3,6 +3,6 @@
   :url "http://github.com/samn/finagle-clojure-examples"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :profiles {:dev {:dependencies [[org.clojure/clojure "1.7.0"]]}}
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.8.0"]]}}
   :dependencies [[dog-breed-info-core "0.1.0-SNAPSHOT"]
-                 [finagle-clojure/thrift "0.4.1"]])
+                 [finagle-clojure/thrift "0.5.0"]])
