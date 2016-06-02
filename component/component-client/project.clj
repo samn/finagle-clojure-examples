@@ -6,5 +6,5 @@
   :profiles {:dev {:dependencies [[org.clojure/clojure "1.8.0"]]}}
   :main component.client
   :dependencies [[component-core "0.1.0-SNAPSHOT"]
-                 [finagle-clojure/thrift "0.5.0"]
+                 [finagle-clojure/thrift "0.6.0"]
                  [com.stuartsierra/component "0.3.1"]])
