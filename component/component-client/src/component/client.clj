@@ -20,5 +20,7 @@
       this
       (assoc this :client nil))))
 
-(def client (component/start (->ComponentClient "localhost:9090")))
-(println (f/await (.hello (:client client))))
+(defn -main
+  [& args]
+  (let [client (component/start (->ComponentClient "localhost:9090"))]
+    (println (f/await (.hello (:client client))))))
